@@ -1,0 +1,13 @@
+{% extends "formulario.html" %}
+
+{% block contenido %}
+
+<table>
+    {{form.as_table}}
+</table>
+
+{%if mensaje %} 
+    {{mensaje}}
+{%endif %}
+
+{% endblock %}
