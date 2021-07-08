@@ -35,10 +35,10 @@ class Clientes(models.Model):
     paterno = models.CharField(max_length=40,verbose_name="Apellido Paterno")
     materno= models.CharField(max_length=40)
     fechaNac = models.CharField(max_length=40)
-    genero = models.BooleanField()
     email=models.CharField(max_length=60)
     telefono=models.CharField(max_length=40)
-    ofertaSino=models.BooleanField()
+    genero = models.BooleanField(verbose_name="¿Usted es género femenino?")
+    ofertaSino=models.BooleanField(verbose_name="¿Quiere recibir ofertas?")
     activo = models.BooleanField()
 
 

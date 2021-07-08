@@ -1,0 +1,56 @@
+{% extends "formulario.html" %}
+{% block titulo %} {{ 'Listado de Clientes' }} {% endblock %}</h1>
+{% block contenido %}
+<p>{{ user }}</p>
+
+{% if listado %}
+<div class="row">
+    <div class="col-12">
+        <table class="table">
+            <!-- definir los encabezados -->
+            <tr>
+                <th>id</th>
+                <th>deporte</th>
+                <th>rut</th>
+                <th>nombre</th>
+                <th>paterno</th>
+                <th>materno</th>
+                <th>fechaNac</th>
+                <th>email</th>
+                <th>genero</th>
+                <th>ofertaSino</th>
+                <th>Opciones</th>
+            </tr>
+            <!-- crear las fila -->
+            {% for dato in listado %}
+            <tr>
+                <td>{{ dato.id }}</td>
+                <td>{{ dato.deporte }}</td>
+                <td>{{ dato.rut }}</td>
+                <td>{{ dato.nombre }}</td>
+                <td>{{ dato.paterno }}</td>
+                <td>{{ dato.fechaNac }}</td>
+                <td>{{ dato.email }}</td>
+                <td>{{ dato.genero }}</td>
+                <td>{{ dato.ofertaSino }}</td>
+                <td>
+                    <a href="{% url 'modificarCliente' dato.id %}" class="btn btn-warning">Modificar</a>
+                    <a href="{% url 'eliminarCliente' dato.id %}" class="btn btn-danger">ELIMINAR</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+<div class="row justify-content-center">
+    <div class="col-12">
+        <a href="{% url 'crearCliente' %}" class="btn btn-primary">Crear Cliente</a>
+    </div>
+</div>
+
+
+
+
+{% else %}
+<h3>No hay filas para mostrar</h3>
+{% endif %} {% endblock %}

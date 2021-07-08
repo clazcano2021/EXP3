@@ -1,0 +1,26 @@
+{% extends "formulario.html" %}
+
+<h1 class="text-center">{% block titulo %} {{ 'Crear Cliente' }} {% endblock %}</h1>
+{% block contenido %} {% if mensaje %}
+<div class="alert alert-success" role="alert">
+    {{ mensaje }}
+</div>
+{% endif %}
+<form method="POST">
+    {% csrf_token %}
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <table class="table">
+                {{ form.as_table }}
+            </table>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <input type="submit" class="btn btn-primary" value="Guardar">
+            <a class="nav-link" href="{% url 'listadoCliente' %}">Listado de Clientes</a>
+        </div>
+    </div>
+</form>
+
+{% endblock %}

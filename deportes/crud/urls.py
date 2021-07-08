@@ -4,7 +4,10 @@ from .views import *
 urlpatterns = [
     path('', index, name='index'),
     path('index', index, name='index'),
-    path('cliente', cliente, name='cliente'),
+        path('listadoCliente',  listadoCliente, name="listadoCliente"),
+        path('crearCliente',  crearCliente, name="crearCliente"),
+        path('modificarCliente/<id>',  modificarCliente, name="modificarCliente"),
+        path('eliminarCliente/<id>',  eliminarCliente, name="eliminarCliente"),
 
 ]
 
